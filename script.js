@@ -9,10 +9,12 @@ var giganticList = ""
 var finalPass = ""
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword();
+    generatePassword();
     var passwordText = document.querySelector("#password");
 
     passwordText.value = finalPass;
+    finalPass=""
+    giganticList=""
 
 }
 
@@ -21,10 +23,10 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
     var userInput = prompt("Generate a password with a length of at least 8 characters and no more than 128 characters");
-    if (userInput <8 || userInput >128) {
+    while (userInput <8 || userInput >128) {
         alert("Try again");
 
-        return;
+        userInput = prompt("Generate a password with a length of at least 8 characters and no more than 128 characters");
     }
 
     var numChoice = confirm("Would you like to use a number?")
